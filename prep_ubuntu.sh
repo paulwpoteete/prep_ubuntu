@@ -41,11 +41,11 @@ do
 	chown 0 /etc/$file
 done
 chown 0:0 /etc/sudoers
-chmod 660 /etc/sudoers
+chmod 440 /etc/sudoers
 
 echo -e "\n\033[1mUpdating the bash prompt...\033[0m"
 wget -O /root/.bashrc http://public.cybernados.net/pub/prep_ubuntu/bashrc
 wget -O /home/ubuntu/.bashrc http://public.cybernados.net/pub/prep_ubuntu/bashrc
-mv -v /etc/update-motd/10-help* /root/
+mv -v /etc/update-motd.d/10-help* /root/
 printf "\n\nConfiguration Complete.\nThe new IP address upon reboot will be 192.168.1.199\nIf you wish to change this, edit the /etc/network/interfaces file now...\n\n"
 exit 0
