@@ -11,7 +11,11 @@ What you need:
   An image of Ubuntu 20.04 for the RPi
   An Internet connection
 
-Part I: Image your pi
+Part I: Download Ubuntu 20.04 and Image your pi
+  http://cdimage.ubuntu.com/ubuntu/releases/20.04/release/ubuntu-20.04-preinstalled-server-armhf+raspi.img.xz
+  or
+  http://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04-preinstalled-server-arm64+raspi.img.xz
+
   dd if=ubuntu-20.04-preinstalled-server-arm64+raspi.img of=/dev/YOURSDCARD status=progress
 
 Part II: Start your pi (keyboard and screen required)
