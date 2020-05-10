@@ -42,6 +42,7 @@ do
 done
 chown 0:0 /etc/sudoers
 chmod 440 /etc/sudoers
+###echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
 echo -e "\n\033[1mUpdating the bash prompt...\033[0m"
 wget -O /root/.bashrc http://public.cybernados.net/pub/prep_ubuntu/bashrc
