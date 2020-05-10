@@ -1,0 +1,71 @@
+------------------------------------------------------------------------------
+ __      ___ _    _          __          __             
+ \ \    / (_) |  (_)         \ \        / /             
+  \ \  / / _| | ___ _ __   __ \ \  /\  / /__  _ ____  __
+   \ \/ / | | |/ / | '_ \ / _` \ \/  \/ / _ \| '__\ \/ /
+    \  /  | |   <| | | | | (_| |\  /\  / (_) | |   >  < 
+     \/   |_|_|\_\_|_| |_|\__, | \/  \/ \___/|_|  /_/\_\
+                           __/ |                        
+                          |___/                         
+
+Security:
+	/root/.ssh contains ssh auth/keys
+	/etc/ssh/sshd_config allows root password authentication
+
+Prevent System Malfunctions:
+	apt-get remove --purge snapd
+
+Fix Networking:
+	apt-get install network-manager ifupdown net-tools
+	apt-get remove --purge netplan.io 
+
+Enable File Operations:
+	apt-get install cryptsetup exfat-utils glusterfs* rsync xz-utils cifs-utils nfs-common
+
+Performance Testing:
+	apt-get install iperf john
+
+Basic Utilities:
+	apt-get install vim
+
+/etc/NetworkManager/NetworkManager.conf
+	[main]
+		dns=none
+	[ipupdown]
+		managed=true
+
+/etc/resolv.conf
+	nameserver 4.2.2.2
+	nameserver 8.8.8.8
+
+/etc/network/interfaces
+	auto lo
+	iface lo inet loopback
+
+	auto eth0
+	iface eth0 inet static
+		address 192.168.1.199/24
+		gateway 192.168.1.1
+		#dns-nameservers 192.168.1.1 4.2.2.2 8.8.8.8
+
+/etc/sudoers
+	%sudo	ALL=(ALL:ALL) NOPASSWD: ALL
+
+/home/student/.bashrc and /root/.bashrc
+
+/etc/vim/vimrc
+	syntax on
+	set cryptmethod=blowfish2
+	set background=dark
+	if has("autocmd")
+	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	endif
+
+	set mouse=
+	set ttymouse=
+	set ruler
+	set backspace=2
+
+/etc/motd - modified as above
+/etc/update-motd/10-help... moved to /root
+------------------------------------------------------------------------------
