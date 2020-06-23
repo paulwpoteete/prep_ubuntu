@@ -37,7 +37,7 @@ for file in 'vim/vimrc sudoers resolv.conf network/interfaces NetworkManager.con
 do
 	cd /etc
 	mv -v /etc/$file /etc/$file.original
-	wget -O - https://raw.githubusercontent.com/paulwpoteete/prep_ubuntu/ubuntu_configs.tar | tar xv
+	wget -O - https://raw.githubusercontent.com/paulwpoteete/prep_ubuntu/master/ubuntu_configs.tar | tar xv
 	chown 0 /etc/$file
 done
 chown 0:0 /etc/sudoers
@@ -45,8 +45,8 @@ chmod 440 /etc/sudoers
 ###echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
 echo -e "\n\033[1mUpdating the bash prompt...\033[0m"
-wget -O /root/.bashrc https://raw.githubusercontent.com/paulwpoteete/prep_ubuntu/bashrc
-wget -O /home/ubuntu/.bashrc https://raw.githubusercontent.com/paulwpoteete/prep_ubuntu/bashrc
+wget -O /root/.bashrc https://raw.githubusercontent.com/paulwpoteete/prep_ubuntu/master/bashrc
+wget -O /home/ubuntu/.bashrc https://raw.githubusercontent.com/paulwpoteete/prep_ubuntu/master/bashrc
 mv -v /etc/update-motd.d/10-help* /root/
 printf "\n\nConfiguration Complete.\nThe new IP address upon reboot will be 192.168.1.199\nIf you wish to change this, edit the /etc/network/interfaces file now...\n\n"
 exit 0
