@@ -27,7 +27,7 @@ sleep 1
 echo -e "\n\033[1mUpdating system...\033[0m"
 apt-get update
 echo -e "\n\033[1mInstalling base tools...\033[0m"
-apt-get install --install-recommends -y network-manager ifupdown net-tools cryptsetup exfat-utils glusterfs* rsync xz-utils cifs-utils john iperf vim
+apt-get install --install-recommends -y network-manager ifupdown net-tools cryptsetup exfat-utils glusterfs* rsync xz-utils cifs-utils john iftop htop iperf vim
 echo -e "\n\033[1mRemoving abominations (snapd and netplan)...\033[0m"
 apt-get remove --purge -y snapd
 apt-get remove --purge -y netplan.io
